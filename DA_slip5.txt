@@ -1,0 +1,37 @@
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load the iris dataset
+iris = load_iris()
+
+# Create a pandas dataframe from the dataset
+df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+df['species'] = iris.target_names[iris.target]
+
+# View basic statistical details of the different species
+print("Basic Statistical Details:")
+print(df.groupby('species').describe())
+
+# Split the data into training and testing sets
+X = iris.data
+y = iris.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Train a logistic regression model
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# Use the model to predict the species of the test data
+y_pred = model.predict(X_test)
+
+# Calculate the accuracy of the model
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+
+
+
+# pip install scikit-learn

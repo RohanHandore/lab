@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+  <item>
+    <name>Item 1</name>
+    <rate>10.99</rate>
+    <quantity>100</quantity>
+  </item>
+  <item>
+    <name>Item 2</name>
+    <rate>25.50</rate>
+    <quantity>50</quantity>
+  </item>
+  <item>
+    <name>Item 3</name>
+    <rate>5.00</rate>
+    <quantity>200</quantity>
+  </item>
+  <item>
+    <name>Item 4</name>
+    <rate>12.75</rate>
+    <quantity>75</quantity>
+  </item>
+  <item>
+    <name>Item 5</name>
+    <rate>18.00</rate>
+    <quantity>150</quantity>
+  </item>
+</items>
+
+
+
+<?php
+// Load the XML file
+$xml = simplexml_load_file("items.xml");
+
+// Loop through the items and display the data
+foreach ($xml->item as $item) {
+    echo "Item Name: " . $item->name . "<br>";
+    echo "Item Rate: $" . $item->rate . "<br>";
+    echo "Item Quantity: " . $item->quantity . "<br><br>";
+}
+?>
