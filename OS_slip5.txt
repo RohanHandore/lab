@@ -183,3 +183,10 @@ int main()
     MPI_Finalize();
     return 0;
 }
+
+
+// sudo apt install libopenmpi-dev
+// sudo apt install lam4-dev
+// dnf install openmpi-devel
+// sudo dnf install openmpi-devel
+// find /usr/include -name mpi.h
